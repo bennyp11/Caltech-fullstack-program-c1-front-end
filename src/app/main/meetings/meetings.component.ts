@@ -10,6 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class MeetingsComponent implements OnInit {
   closeResult = '';
   selectedId!: number;
+  selectedStatus = '';
   selectedDate = '';
   selectedTime = '';
   selectedEmail = '';
@@ -17,6 +18,7 @@ export class MeetingsComponent implements OnInit {
 
   public meetingsList:{
     meetingid: number,
+    status: string,
     date: string,
     time: string,
     email: string,
@@ -41,9 +43,10 @@ export class MeetingsComponent implements OnInit {
     this.modalService.open(createMeeting, {size: "xl"});
   }
 
-  openUpdateMeeting(updateMeeting: any, meetingid: number, date: string, time: string, email: string, description: string){
+  openUpdateMeeting(updateMeeting: any, meetingid: number, status: string, date: string, time: string, email: string, description: string){
     this.modalService.open(updateMeeting, {size: "xl"});
     this.selectedId = meetingid;
+    this.selectedStatus = status;
     this.selectedDate = date;
     this.selectedTime = time;
     this.selectedEmail = email;

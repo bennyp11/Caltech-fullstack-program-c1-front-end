@@ -13,6 +13,8 @@ export class UpdateMeetingsComponent implements OnInit {
   @Input()
   selectedId!: number;
   @Input()
+  selectedStatus!: string;
+  @Input()
   selectedDate!: string;
   @Input()
   selectedTime!: string;
@@ -23,6 +25,7 @@ export class UpdateMeetingsComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
     meetingid: new FormControl(''),
+    status: new FormControl(''),
     date: new FormControl(''),
     time: new FormControl(''),
     email: new FormControl(''),
@@ -32,6 +35,7 @@ export class UpdateMeetingsComponent implements OnInit {
 
   public meetingsList:{
     meetingid: number,
+    status: string,
     date: string,
     time: string,
     email: string,
@@ -42,6 +46,7 @@ export class UpdateMeetingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
+      status: ['', Validators.maxLength(15)],
       date: [
         '', [
           Validators.required,

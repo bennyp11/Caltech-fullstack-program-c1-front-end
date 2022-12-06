@@ -19,6 +19,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th class="text-center" scope="col">Meeting ID</th>
+                                <th class="text-center" scope="col">Status</th>
                                 <th class="text-center" scope="col">Date</th>
                                 <th class="text-center" scope="col">Time</th>
                                 <th class="text-center" scope="col">Attendee Email</th>
@@ -28,11 +29,12 @@
                             <tbody>
                               <tr *ngFor="let meeting of meetingsList">
                                 <td class="text-center align-middle">{{ meeting.meetingid }}</td>
+                                <td class="text-center align-middle">{{ meeting.status }}</td>
                                 <td class="text-center align-middle">{{ meeting.date }}</td>
                                 <td class="text-center align-middle">{{ meeting.time }}</td>
                                 <td class="text-center align-middle">{{ meeting.email }}</td>
                                 <td class="text-center align-middle">{{ meeting.description }}</td>
-                                <button type="button" class="btn btn-outline-primary btn-sm m-2" (click)="openUpdateMeeting(updateMeeting, meeting.meetingid, meeting.date, meeting.time, meeting.email, meeting.description)">Update</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm m-2" (click)="openUpdateMeeting(updateMeeting, meeting.meetingid, meeting.status, meeting.date, meeting.time, meeting.email, meeting.description)">Update</button>
                             </tr>
                             </tbody>
                       </table>

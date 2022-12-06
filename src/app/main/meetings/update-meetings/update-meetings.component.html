@@ -8,6 +8,16 @@
         </div>
         <div class="register-form card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12 mt-2">
+            <label>Status</label>
+            <input
+              type="text"
+              placeholder={{selectedStatus}}
+              formControlName="status"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['status'].errors }"
+            />
+            </div>
         <div class="form-group col-12 mt-2">
           <label>Date</label>
           <input
