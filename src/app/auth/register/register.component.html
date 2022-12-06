@@ -1,0 +1,46 @@
+<div class="container-fluid vh-100 d-flex justify-content-center">
+    <div class="col-12 col-sm-6 d-flex flex-column align-items-center mt-5" >
+        <h3 class="text-center m-0">Welcome to Proper Project Management!</h3>
+        <div class="card w-75 shadow-sm mt-5">
+            <div class="card-header bg-white border-0 mt-5">
+                <h3 class="text-center m-0">Register</h3>
+              </div>
+            <div class="card-body" *ngIf='!this.isLogin'>
+                <form name="register" #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+                    <div class="form-group col-12 mt-2">
+                        <label for="first-name">First Name</label>
+                        <input form="register" name="firstname" type="first-name" class="form-control" id="first-name"  autocomplete="off" aria-describedby="first-name" placeholder="eg: John"
+                        ngModel required>
+                    </div>
+                    <div class="form-group col-12 mt-2">
+                        <label for="last-name">Last Name</label>
+                        <input form="register" name="lastname" type="last-name" class="form-control" id="last-name"  autocomplete="off" aria-describedby="last-name" placeholder="eg: Stamos"
+                        ngModel required>
+                    </div>
+                    <div class="form-group col-12 mt-2">
+                      <label for="email">Email address</label>
+                      <input form="register" name="email" type="email" class="form-control" id="email"  autocomplete="off" aria-describedby="email" placeholder="eg: abc@example.com"
+                      ngModel required>
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group col-12 mt-2">
+                      <label for="password">Password</label>
+                      <input form="register" name="password" type="password" class="form-control" autocomplete="off" id="password" placeholder="Enter your password" 
+                      ngModel required>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="form-check mt-3">
+                            <input form="register" type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+                            <a routerLink="/login"><label class="form-group col-12 mt-2">Sign In Here</label></a>
+                        <button type="submit" value="Register" class="btn btn-dark mt-3">Submit</button>
+                    </div>
+                  </form>
+              </div>
+        </div>
+        <div class = 'col-md-4 offset-4 mt-5' *ngIf = 'this.isLogin'>
+            <h5>You are logged in</h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container-fluid py-3 min-vh-100">
+    <div class="row w-100 m-0">
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white border-0">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <h4>Meetings</h4>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="d-flex justify-content-end align-items-center">
+                            <button class="btn btn-lg btn-outline-primary" (click)="openCreateMeeting(createMeeting)">Add New Meeting</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-flush m-0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th class="text-center" scope="col">Meeting ID</th>
+                                <th class="text-center" scope="col">Date</th>
+                                <th class="text-center" scope="col">Time</th>
+                                <th class="text-center" scope="col">Attendee Email</th>
+                                <th class="text-center" scope="col">Meeting Description</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let meeting of meetingsList">
+                                <td class="text-center align-middle">{{ meeting.meetingid }}</td>
+                                <td class="text-center align-middle">{{ meeting.date }}</td>
+                                <td class="text-center align-middle">{{ meeting.time }}</td>
+                                <td class="text-center align-middle">{{ meeting.email }}</td>
+                                <td class="text-center align-middle">{{ meeting.description }}</td>
+                                <button type="button" class="btn btn-outline-primary btn-sm m-2" (click)="openUpdateMeeting(updateMeeting, meeting.meetingid, meeting.date, meeting.time, meeting.email, meeting.description)">Update</button>
+                            </tr>
+                            </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #updateMeeting let-modal>
+    <app-update-meetings [selectedId]="selectedId" [selectedDate]="selectedDate" [selectedTime]="selectedTime" [selectedEmail]="selectedEmail" [selectedDescription]="selectedDescription" ></app-update-meetings>
+</ng-template>
+
+<ng-template #createMeeting let-modal>
+    <app-create-meetings></app-create-meetings>
+</ng-template>
+
+
+<!-- create / update product
+<ng-template #meetingsModal let-modal>
+    <app-create-meetings (closeModel)="closeModel(meetingsModal)"></app-create-meetings>
+</ng-template>
+
+-->
+
+
+<!--<ng-template #productViewModal let-modal>
+    <app-view-meetings [productInfo]="productInfo" (closeModel)="closeModel(productViewModal)"></app-view-meetings>
+</ng-template>
+-->

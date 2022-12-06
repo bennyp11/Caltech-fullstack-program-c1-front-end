@@ -1,0 +1,31 @@
+<div class="container-fluid vh-100 d-flex justify-content-center">
+  <div class="col-12 col-sm-6 d-flex flex-column align-items-center mt-5" >
+      <h3 class="text-center m-0">Update a Customer!</h3>
+      <div class="card w-75 shadow-sm mt-5">
+          <div class="card-header bg-white border-0 mt-5">
+            </div>
+          <div class="card-body">
+              <form name="update-customer" #myform="ngForm">
+                  <div class="form-group col-12 mt-2">
+                    <label for="customerid">Customer ID</label>
+                    <input form="update-customer" name="customerid" type="customerid" class="form-control" id="customerid" aria-describedby="customerid" placeholder={{selectedId}} value={{selectedId}}
+                    ngModel disabled>
+                  </div>
+                  <div class="form-group col-12 mt-2">
+                      <label for="first-name">Company</label>
+                      <input form="update-customer" name="company" type="company" class="form-control" id="first-name"  autocomplete="off" aria-describedby="first-name" placeholder={{selectedCompany}}
+                      ngModel required>
+                  </div>
+                  <div class="form-group col-12 mt-2">
+                    <label for="email">Email address</label>
+                    <input form="update-customer" name="email" type="email" class="form-control" id="email"  autocomplete="off" aria-describedby="email" placeholder={{selectedEmail}}
+                    ngModel required>
+                  </div>
+                  <div class="d-flex flex-column align-items-center">
+                      <button type="submit" class="btn btn-dark mt-3" (click)="onSave(myform)">Save</button>
+                  </div>
+                </form>
+            </div>
+      </div>
+  </div>
+</div>

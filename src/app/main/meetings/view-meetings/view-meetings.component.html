@@ -1,0 +1,25 @@
+<div class="m-5">
+<div class="table-responsive bg-white">
+    <table class="table m-0">
+        <thead class="thead-light">
+          <tr>
+            <th class="text-center" scope="col">Meeting ID</th>
+            <th class="text-center" scope="col">Date</th>
+            <th class="text-center" scope="col">Time</th>
+            <th class="text-center" scope="col">Attendee Email</th>
+            <th class="text-center" scope="col">Meeting Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meeting of meetingsList">
+            <td class="text-center align-middle">{{ meeting.meetingid }}</td>
+            <td class="text-center align-middle">{{ meeting.date }}</td>
+            <td class="text-center align-middle">{{ meeting.time }}</td>
+            <td class="text-center align-middle">{{ meeting.email }}</td>
+            <td class="text-center align-middle">{{ meeting.description }}</td>
+            <button type="button" class="btn btn-outline-primary btn-sm m-2">Update</button>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>

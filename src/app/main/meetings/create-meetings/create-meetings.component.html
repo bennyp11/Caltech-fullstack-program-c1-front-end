@@ -1,0 +1,82 @@
+<div class="min-vh-100 pb-5 mb-5">
+    <div class="container-fluid vh-100 d-flex justify-content-center">
+      <div class="col-12 col-sm-6 d-flex flex-column align-items-center mt-5">
+        <div class="card w-75 shadow-sm mt-5">
+          <div class="card-header bg-white border-0 mt-5">
+            <h3 class="text-center m-0">Create a Meeting!</h3>
+            <br/>
+          </div>
+          <div class="register-form card-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit(modalOpen)">
+          <div class="form-group col-12 mt-2">
+            <label>Date</label>
+            <input
+              type="text"
+              placeholder="12/25/2022"
+              formControlName="date"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['date'].errors }"
+            />
+            <div *ngIf="submitted && f['date'].errors" class="invalid-feedback">
+              <div *ngIf="f['date'].errors['required']">Date is required</div>
+              <div *ngIf="f['date'].errors['pattern']">
+                Date must be MM/DD/YYYY format
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-12 mt-2">
+            <label>Time</label>
+            <input
+              type="text"
+              placeholder="13:55"
+              formControlName="time"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['time'].errors }"
+            />
+            <div *ngIf="submitted && f['time'].errors" class="invalid-feedback">
+              <div *ngIf="f['time'].errors['required']">Time is required</div>
+              <div *ngIf="f['time'].errors['pattern']">
+                Time must be 24:00 format
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group col-12 mt-2">
+            <label>Customer Email</label>
+            <input
+              type="text"
+              placeholder="yourcustomers@email.com"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            />
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">Email must be a valid format</div>
+            </div>
+          </div>
+  
+          <div class="form-group col-12 mt-2">
+            <label>Meeting Description</label>
+            <textarea
+              rows="4"
+              type="text"
+              placeholder="Let us know what the meeting is about."
+              formControlName="description"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"
+            ></textarea>
+            <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+              <div *ngIf="f['description'].errors['required']">Description is required</div>
+              <div *ngIf="f['description'].errors['minlength']">Description must be at least 30 characters long.</div>
+            </div>
+          </div>        
+          <div class="form-group col-12 mt-2 d-flex flex-column align-items-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
